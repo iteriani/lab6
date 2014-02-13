@@ -38,7 +38,7 @@
      overflow: hidden;
 }
 
-.project .details .detailsImage {
+.detailsImage {
      width: 200px;
      margin: 10px 10px 10px 0px;
      float: left;

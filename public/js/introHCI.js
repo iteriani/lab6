@@ -29,7 +29,9 @@ function addProjectDetails(e) {
 
 	$.get("/project/" +idNumber, function(projectInfo){
 		var elem = $("#" + projectID+" .details");
-		$("#" + projectID+" .img").attr("src", projectInfo.image);
+	//	$("#" + projectID+" .img").attr("src", projectInfo.image).addClass("detailsImage");
+	$("#" + projectID+" .detailsImage").attr("src", projectInfo.image);
+		$("#" + projectID+" .title").html(projectInfo.title+ "<small> "+projectInfo.date + "</small>");
 		elem.html(projectInfo.summary);
 		console.log(elem);
 	});

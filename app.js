@@ -38,6 +38,13 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/project/:id', project.projectInfo);
+app.get("/palette", function(req,res){
+	var colors = require("./palettes.json");
+	var randnum = Math.floor(Math.random()*colors.length);
+	res.json(colors[randnum]);
+});
+
+
 // Example route
 // app.get('/users', user.list);
 

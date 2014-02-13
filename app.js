@@ -30,6 +30,7 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+var palette = require("./routes/palette");
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -38,11 +39,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/project/:id', project.projectInfo);
-app.get("/palette", function(req,res){
-	var colors = require("./palettes.json");
-	var randnum = Math.floor(Math.random()*colors.length);
-	res.json(colors[randnum]);
-});
+app.get("/palette", palette.randomPalette);
 
 
 // Example route
